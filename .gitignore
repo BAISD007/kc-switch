@@ -13,7 +13,7 @@ src-tauri/gen/
 .verify/
 .kc-switch-data/
 verify-backups/
-screenshot.png
+/screenshot.png
 
 # 编辑器 / 系统
 .vscode/
