@@ -27,7 +27,7 @@ KC-Switch 把这些字段做成表单，你勾选就行。
 - [技术栈与架构](#技术栈与架构)
 - [开发](#开发)
 - [测试](#测试)
-- [关于开发者的使用环境](#关于开发者的使用环境)
+- [致谢](#致谢)
 - [已知限制](#已知限制)
 - [反馈](#反馈)
 - [许可](#许可)
@@ -422,11 +422,9 @@ cargo test --test catalog_merge -- --nocapture
 
 ---
 
-## 关于开发者的使用环境
+## 致谢
 
-开发时主要用 [BeichenAPI](https://beichenapi.com/register?aff=VT6863G8MZZQ)，它的 `/models` 接口会直接返回上下文长度、输出长度、输入模态和思考档位——「获取模型列表」的调试基本是在它上面完成的。
-
-> 上面的链接带邀请码。不想用也没关系，KC-Switch 支持任意 OpenAI 兼容端点，不绑定任何供应商。
+感谢 [北辰 API](https://beichenapi.com/register?aff=VT6863G8MZZQ) 提供的支持。
 
 ## 已知限制
 
