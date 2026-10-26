@@ -24,3 +24,7 @@ Thumbs.db
 
 # 开发期截图辅助脚本
 .devtools/
+
+# 本地开发约定，不随仓库发布
+AGENTS.md
+PLAN.md
