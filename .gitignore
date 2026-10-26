@@ -1,0 +1,26 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+src-tauri/target/
+src-tauri/gen/
+
+# Rust 本地配置（含开发期数据目录重定向）
+.cargo-home/
+
+# 本地验证与临时数据
+.verify/
+.kc-switch-data/
+verify-backups/
+screenshot.png
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
+# 开发期截图辅助脚本
+.devtools/

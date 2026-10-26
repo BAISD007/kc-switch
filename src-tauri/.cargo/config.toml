@@ -1,0 +1,6 @@
+[build]
+target-dir = "target"
+
+[env]
+# 开发/测试期间，KC-Switch 自身数据（备份、回收站、状态）一律落在项目内，不写 C 盘。
+KC_SWITCH_DATA_DIR = { value = "../.kc-switch-data", relative = true, force = false }

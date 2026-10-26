@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/*
+  设计令牌来自 Kimi Code Desktop 的实际样式表
+  (resources/desktop-dist/assets/style-CZWGbm1l.css + main-BvXF8mSX.css)。
+  命名与层级保持与其一致，便于后续跟随上游更新。
+*/
+
+@theme {
+  /* ── 字体 ── */
+  --font-sans:
+    "Schibsted Grotesk Variable", "Helvetica Neue", Arial, "Noto Sans SC Variable",
+    "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:
+    "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+
+  /* ── 字号（Kimi Code 的 ui 标尺：base 14px） ── */
+  --text-2xs: 10px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 20px;
+
+  /* ── 间距（4px 基准） ── */
+  --spacing-hairline: 0.5px;
+
+  /* ── 圆角 ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 999px;
+
+  /* ── 动效 ── */
+  --duration-fast: 0.12s;
+  --duration-base: 0.16s;
+  --duration-slow: 0.26s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── 语义色：表面 ── */
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-surface-raised: #ffffff;
+  --color-surface-overlay: #ffffff;
+  --color-surface-sunken: #f5f5f5;
+  --color-sidebar-bg: #f9fbfc;
+
+  /* ── 语义色：文字 ── */
+  --color-ink: rgba(0, 0, 0, 0.9);
+  --color-ink-strong: #000000;
+  --color-ink-muted: rgba(0, 0, 0, 0.6);
+  --color-ink-faint: rgba(0, 0, 0, 0.45);
+  --color-ink-quaternary: rgba(0, 0, 0, 0.3);
+  --color-ink-on-accent: #ffffff;
+
+  /* ── 语义色：线 ── */
+  --color-line: rgba(0, 0, 0, 0.13);
+  --color-line-strong: rgba(0, 0, 0, 0.15);
+  --color-subtle: rgba(0, 0, 0, 0.05);
+
+  /* ── 语义色：交互 ── */
+  --color-hover: rgba(0, 0, 0, 0.03);
+  --color-selected: rgba(0, 0, 0, 0.05);
+  --color-selected-hover: rgba(0, 0, 0, 0.08);
+
+  /* ── 语义色：强调 ── */
+  --color-accent: #1783ff;
+  --color-accent-hover: #167ff7;
+  --color-accent-soft: #e8f3ff;
+  --color-accent-bd: rgba(23, 131, 255, 0.25);
+
+  /* ── 语义色：状态 ── */
+  --color-danger: #c0392b;
+  --color-danger-soft: #fbeaea;
+  --color-danger-bd: #f0cccc;
+  --color-success: #0e7a38;
+  --color-success-soft: #e7f6ec;
+  --color-attention: #ff9f0a;
+  --color-attention-soft: #fff6e6;
+  --color-done: #8250df;
+
+  /* ── 遮罩与阴影 ── */
+  --color-scrim: rgba(0, 0, 0, 0.4);
+  --color-scrim-strong: rgba(0, 0, 0, 0.6);
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+  --shadow-popover:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-modal:
+    0 10px 15px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Kimi Code 的焦点环与发丝线 */
+  --p-focus-ring-w: 3px;
+  --p-focus-ring: 0 0 0 var(--p-focus-ring-w) var(--color-accent-soft);
+  --p-hairline: 0.5px;
+  --p-sidebar-w: 264px;
+  --p-panel-head-h: 48px;
+
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  overflow: hidden;
+}
+
+/* 焦点可见：Kimi Code 用柔和的蓝色光晕，而非浏览器默认描边 */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--p-focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+/* 滚动条：细分、悬停加深 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-xs);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+::selection {
+  background: rgba(23, 131, 255, 0.2);
+}
+
+/*
+  深色主题。上游 Kimi Code 的深色语义色由 JS 注入，
+  这里按其 --ms-* 深色基准（background 7% / foreground 93% / border 20%）
+  换算成与浅色同构的一套值，保证明暗切换时层级关系一致。
+*/
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #121212;
+  --color-surface: #171717;
+  --color-surface-raised: #1c1c1c;
+  --color-surface-overlay: #1f1f1f;
+  --color-surface-sunken: #0e0e0e;
+  --color-sidebar-bg: #0f0f0f;
+
+  --color-ink: rgba(255, 255, 255, 0.93);
+  --color-ink-strong: #ffffff;
+  --color-ink-muted: rgba(255, 255, 255, 0.6);
+  --color-ink-faint: rgba(255, 255, 255, 0.45);
+  --color-ink-quaternary: rgba(255, 255, 255, 0.3);
+  --color-ink-on-accent: #ffffff;
+
+  --color-line: rgba(255, 255, 255, 0.13);
+  --color-line-strong: rgba(255, 255, 255, 0.2);
+  --color-subtle: rgba(255, 255, 255, 0.06);
+
+  --color-hover: rgba(255, 255, 255, 0.05);
+  --color-selected: rgba(255, 255, 255, 0.08);
+  --color-selected-hover: rgba(255, 255, 255, 0.12);
+
+  /* 深色下蓝色略微提亮，保证在暗底上有足够对比 */
+  --color-accent: #3d93ff;
+  --color-accent-hover: #5aa4ff;
+  --color-accent-soft: rgba(61, 147, 255, 0.16);
+  --color-accent-bd: rgba(61, 147, 255, 0.4);
+
+  --color-danger: #f07a6e;
+  --color-danger-soft: rgba(240, 122, 110, 0.14);
+  --color-danger-bd: rgba(240, 122, 110, 0.38);
+  --color-success: #4cc98a;
+  --color-success-soft: rgba(76, 201, 138, 0.14);
+  --color-attention: #f0b24a;
+  --color-attention-soft: rgba(240, 178, 74, 0.14);
+  --color-done: #a97cf0;
+
+  --color-scrim: rgba(0, 0, 0, 0.6);
+  --color-scrim-strong: rgba(0, 0, 0, 0.75);
+
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+  --shadow-popover: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-modal: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+
+  --p-focus-ring: 0 0 0 var(--p-focus-ring-w) var(--color-accent-soft);
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.16);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  ::selection {
+    background: rgba(61, 147, 255, 0.3);
+  }
+}
+
+/* 下拉框箭头：深浅色各一套，避免 data URI 里无法使用 currentColor */
+.select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23000000' stroke-opacity='.45' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+html[data-theme="dark"] .select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23ffffff' stroke-opacity='.5' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5'/%3E%3C/svg%3E");
+}
